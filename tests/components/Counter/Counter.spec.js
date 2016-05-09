@@ -2,6 +2,8 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Counter } from 'components/Counter/Counter'
 import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
+import Button from 'antd/lib/button'
 
 describe('(Component) Counter', () => {
   let _props, _spies, _wrapper
@@ -33,18 +35,15 @@ describe('(Component) Counter', () => {
   })
 
   it('Should render exactly two buttons.', () => {
-    expect(_wrapper).to.have.descendants('.btn')
+    expect((_wrapper).find(Button)).to.have.length.of(2)
   })
-  //
+
   describe('An increment button...', () => {
     let _button
 
     beforeEach(() => {
-      _button = _wrapper.find('button').filterWhere(a => a.text() === 'Increment')
-    })
-
-    it('has bootstrap classes', () => {
-      expect(_button.hasClass('btn btn-default')).to.be.true
+      _wrapper = mount(<Counter {..._props} />)
+      _button = (_wrapper).find(Button).filterWhere(a => a.text() === 'Increment')
     })
 
     it('Should dispatch a `increment` action when clicked', () => {
@@ -61,11 +60,8 @@ describe('(Component) Counter', () => {
     let _button
 
     beforeEach(() => {
+      _wrapper = mount(<Counter {..._props} />)
       _button = _wrapper.find('button').filterWhere(a => a.text() === 'Double (Async)')
-    })
-
-    it('has bootstrap classes', () => {
-      expect(_button.hasClass('btn btn-default')).to.be.true
     })
 
     it('Should dispatch a `doubleAsync` action when clicked', () => {

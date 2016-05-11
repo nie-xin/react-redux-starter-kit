@@ -36,9 +36,7 @@ class AppContainer extends React.Component {
 
     return (
       <Provider store={this.props.store}>
-        <div style={{ height: '100%' }}>
-          {content}
-        </div>
+        {content}
       </Provider>
     )
   }

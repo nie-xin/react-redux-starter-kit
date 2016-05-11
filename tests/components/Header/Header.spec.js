@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header } from 'components/Header/Header'
 import classes from 'components/Header/Header.scss'
+import LanguageSelect from 'components/LanguageSelect/containers/LanguageSelectContainer'
 import { IndexLink, Link } from 'react-router'
 import { shallow } from 'enzyme'
 import { FormattedMessage } from 'react-intl'
@@ -12,9 +13,13 @@ describe('(Component) Header', () => {
     _wrapper = shallow(<Header/>)
   })
 
-  it('Renders a welcome message', () => {
+  it('Should render a welcome message', () => {
     const welcome = _wrapper.find(FormattedMessage)
     expect(welcome).to.exist
+  })
+
+  it('Should render a language select', () => {
+    expect(_wrapper).to.contain(<LanguageSelect />)
   })
 
   describe('Navigation links...', () => {

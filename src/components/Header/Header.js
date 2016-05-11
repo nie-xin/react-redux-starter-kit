@@ -1,7 +1,7 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import { defineMessages, FormattedMessage } from 'react-intl'
-import Select from 'antd/lib/select'
+import LanguageSelect from '../LanguageSelect/containers/LanguageSelectContainer'
 import classes from './Header.scss'
 
 const messages = defineMessages({
@@ -25,10 +25,7 @@ export const Header = () => (
       Counter
     </Link>
 
-    <Select defaultValue='en'>
-      <Option value='en'>en</Option>
-      <Option value='fr'>fr</Option>
-    </Select>
+    <LanguageSelect />
   </div>
 )
 

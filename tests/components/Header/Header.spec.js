@@ -3,6 +3,7 @@ import { Header } from 'components/Header/Header'
 import classes from 'components/Header/Header.scss'
 import { IndexLink, Link } from 'react-router'
 import { shallow } from 'enzyme'
+import { FormattedMessage } from 'react-intl'
 
 describe('(Component) Header', () => {
   let _wrapper
@@ -12,9 +13,8 @@ describe('(Component) Header', () => {
   })
 
   it('Renders a welcome message', () => {
-    const welcome = _wrapper.find('h1')
+    const welcome = _wrapper.find(FormattedMessage)
     expect(welcome).to.exist
-    expect(welcome.text()).to.match(/React Redux Starter Kit/)
   })
 
   describe('Navigation links...', () => {

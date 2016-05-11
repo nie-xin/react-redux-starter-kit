@@ -1,7 +1,6 @@
 import React from 'react'
 import classes from './Counter.scss'
 import Button from 'antd/lib/button'
-import Icon from 'antd/lib/Icon'
 
 export const Counter = (props) => (
   <div>
@@ -13,11 +12,11 @@ export const Counter = (props) => (
       </span>
     </h2>
     <Button type='primary' onClick={props.increment}>
-      <Icon type='search' /> Increment
+      Increment
     </Button>
     {' '}
     <Button type='primary' onClick={props.doubleAsync}>
-      <Icon type='link' /> Double (Async)
+      Double (Async)
     </Button>
   </div>
 )

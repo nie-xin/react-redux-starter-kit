@@ -5,6 +5,7 @@ import { useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
+import IntlUtils from './utils/Intl'
 
 // ========================================================
 // Browser History Setup
@@ -40,7 +41,7 @@ if (__DEBUG__) {
 // ========================================================
 const MOUNT_NODE = document.getElementById('root')
 
-let render = (routerKey = null) => {
+let render = (locale: null, routerKey: null) => {
   const routes = require('./routes/index').default(store)
 
   ReactDOM.render(
@@ -49,10 +50,14 @@ let render = (routerKey = null) => {
       history={history}
       routes={routes}
       routerKey={routerKey}
+      locale={locale}
     />,
     MOUNT_NODE
   )
 }
+
+const locale = document.documentElement.getAttribute('lang')
+render = render.bind(null, locale)
 
 // Enable HMR and catch runtime errors in RedBox
 // This code is excluded from production bundle
@@ -76,4 +81,9 @@ if (__DEV__ && module.hot) {
 // ========================================================
 // Go!
 // ========================================================
-render()
+IntlUtils.loadIntlPolyfill(locale)
+  .then(IntlUtils.loadLocaleData.bind(null, locale))
+  .then(render)
+  .catch(err => {
+    console.error(err)
+  })

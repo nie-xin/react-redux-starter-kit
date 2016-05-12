@@ -9,7 +9,6 @@ debug('Create configuration.')
 const karmaConfig = {
   basePath: '../', // project root in relation to bin/karma.js
   files: [
-    './node_modules/phantomjs-polyfill/bind-polyfill.js',
     {
       pattern: `./${config.dir_test}/test-bundler.js`,
       watched: false,
@@ -23,7 +22,7 @@ const karmaConfig = {
   preprocessors: {
     [`${config.dir_test}/test-bundler.js`]: ['webpack']
   },
-  browsers: ['PhantomJS'],
+  browsers: ['jsdom'],
   webpack: {
     devtool: 'cheap-module-source-map',
     resolve: {

@@ -14,7 +14,7 @@ describe('(Component) LanguageSelectView', () => {
     _props = {
       locale: 'en',
       ...bindActionCreators({
-        localeChange: (_spies.localeChange = sinon.spy())
+        localeLoad: (_spies.localeLoad = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
     _wrapper = shallow(<LanguageSelectView {..._props} />)

@@ -1,12 +1,12 @@
 import React from 'react'
-import LanguageSelect from 'components/LanguageSelect/components/LanguageSelect'
+import LanguageSelectView from 'components/LanguageSelect/components/LanguageSelectView'
 import { bindActionCreators } from 'redux'
 import { shallow, mount } from 'enzyme'
 import Select from 'antd/lib/select'
 
 const Option = Select.Option
 
-describe('(Component) LanguageSelect', () => {
+describe('(Component) LanguageSelectView', () => {
   let _wrapper, _spies, _props
 
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('(Component) LanguageSelect', () => {
         localeChange: (_spies.localeChange = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
-    _wrapper = shallow(<LanguageSelect {..._props} />)
+    _wrapper = shallow(<LanguageSelectView {..._props} />)
   })
 
   it('Should render a Select component', () => {
@@ -35,15 +35,6 @@ describe('(Component) LanguageSelect', () => {
     it('Should render predefined options', () => {
       const options = select.find(Option)
       expect(options).to.have.length.of(2)
-    })
-
-    it('Should dispatch `localeChange` action when changed', () => {
-      _spies.dispatch.should.have.not.been.called
-
-      select.simulate('change')
-
-      _spies.dispatch.should.have.been.called
-      _spies.localeChange.should.have.been.called
     })
   })
 })

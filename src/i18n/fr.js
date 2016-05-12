@@ -1,6 +1,6 @@
 export default {
-  'home.welcome': 'Bienvenue au Starter Kit du React Redux',
-  'home.sampleCounter': 'Contateur d\'example: ',
-  'languageSelector.english': 'Anglés',
-  'languageSelector.french': 'Français'
+  'title.welcome': 'Bienvenue au Starter Kit du React Redux',
+  'navbar.item1': 'Accueil',
+  'navbar.item2': 'Compteur',
+  'home.content': 'Home view contenu'
 }

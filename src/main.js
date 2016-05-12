@@ -6,6 +6,8 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
 import IntlUtils from './utils/Intl'
+import { injectReducer } from './store/reducers'
+import languageSelectReducer from './components/LanguageSelect/modules/languageSelect'
 
 // ========================================================
 // Browser History Setup
@@ -41,7 +43,7 @@ if (__DEBUG__) {
 // ========================================================
 const MOUNT_NODE = document.getElementById('root')
 
-let render = (locale: null, routerKey: null) => {
+let render = (routerKey: null) => {
   const routes = require('./routes/index').default(store)
 
   ReactDOM.render(
@@ -50,14 +52,10 @@ let render = (locale: null, routerKey: null) => {
       history={history}
       routes={routes}
       routerKey={routerKey}
-      locale={locale}
     />,
     MOUNT_NODE
   )
 }
-
-const locale = document.documentElement.getAttribute('lang')
-render = render.bind(null, locale)
 
 // Enable HMR and catch runtime errors in RedBox
 // This code is excluded from production bundle
@@ -81,6 +79,11 @@ if (__DEV__ && module.hot) {
 // ========================================================
 // Go!
 // ========================================================
+
+// We could inject locale reducer with a fetced locale from user profile
+const locale = document.documentElement.getAttribute('lang')
+injectReducer(store, { key: 'locale', reducer: languageSelectReducer })
+
 IntlUtils.loadIntlPolyfill(locale)
   .then(IntlUtils.loadLocaleData.bind(null, locale))
   .then(render)

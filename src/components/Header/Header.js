@@ -6,9 +6,19 @@ import classes from './Header.scss'
 
 const messages = defineMessages({
   welcome: {
-    id: 'home.welcome',
+    id: 'title.welcome',
     description: 'Welcome message to the user',
     defaultMessage: 'React Redux Starter Kit'
+  },
+  navbarItem1: {
+    id: 'navbar.item1',
+    description: 'First navbar item',
+    defaultMessage: 'Home'
+  },
+  navbarItem2: {
+    id: 'navbar.item2',
+    description: 'second navbar item',
+    defaultMessage: 'Counter'
   }
 })
 
@@ -18,11 +28,11 @@ export const Header = () => (
       {text => <h1>{text}</h1>}
     </FormattedMessage>
     <IndexLink to='/' activeClassName={classes.activeRoute}>
-      Home
+      <FormattedMessage {...messages.navbarItem1} />
     </IndexLink>
     {' · '}
     <Link to='/counter' activeClassName={classes.activeRoute}>
-      Counter
+      <FormattedMessage {...messages.navbarItem2} />
     </Link>
 
     <LanguageSelect />

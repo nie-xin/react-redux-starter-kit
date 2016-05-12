@@ -22,7 +22,7 @@ const karmaConfig = {
   preprocessors: {
     [`${config.dir_test}/test-bundler.js`]: ['webpack']
   },
-  browsers: ['PhantomJS'],
+  browsers: ['jsdom'],
   webpack: {
     devtool: 'cheap-module-source-map',
     resolve: {

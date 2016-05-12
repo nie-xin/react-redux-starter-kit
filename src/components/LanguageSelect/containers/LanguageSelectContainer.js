@@ -1,9 +1,11 @@
 import { connect } from 'react-redux'
-import { localeChange } from '../modules/languageSelect'
-import LanguageSelect from '../components/LanguageSelect'
+import { localeLoad } from '../modules/languageSelect'
+import LanguageSelectView from '../components/LanguageSelectView'
 
 const mapStateToProps = (state) => ({
   locale: state.locale
 })
 
-export default connect(mapStateToProps, { localeChange })(LanguageSelect)
+const mapActionCreators = { localeLoad }
+
+export default connect(mapStateToProps, mapActionCreators)(LanguageSelectView)

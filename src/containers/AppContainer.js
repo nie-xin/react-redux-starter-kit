@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Router } from 'react-router'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 import * as messages from '../i18n'
 
@@ -9,8 +9,7 @@ class AppContainer extends React.Component {
     history: PropTypes.object.isRequired,
     routes: PropTypes.object.isRequired,
     routerKey: PropTypes.number,
-    store: PropTypes.object.isRequired,
-    locale: PropTypes.string.isRequired
+    store: PropTypes.object.isRequired
   }
 
   getContent ({ history, routes, routerKey, locale }) {
@@ -42,4 +41,8 @@ class AppContainer extends React.Component {
   }
 }
 
-export default AppContainer
+function mapStateToProps (state) {
+  return { locale: state.locale }
+}
+
+export default connect(mapStateToProps)(AppContainer)

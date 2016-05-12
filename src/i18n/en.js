@@ -1,6 +1,6 @@
 export default {
-  'home.welcome': 'Welcome to the React Redux Starter Kit',
-  'languageSelector.spanish': 'Spanish',
-  'languageSelector.english': 'English',
-  'languageSelector.french': 'French'
+  'title.welcome': 'Welcome to the React Redux Starter Kit',
+  'navbar.item1': 'Home',
+  'navbar.item2': 'Counter',
+  'home.content': 'Home view content'
 }

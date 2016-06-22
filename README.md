@@ -7,9 +7,10 @@ Starter based on [react-redux-starter-kit](https://github.com/davezuko/react-red
 
 ## TODO:
 
-- [ ] Add [i18n](https://github.com/yahoo/react-intl) integration
-- [ ] Add [Ant Design](http://ant.design/) components
-- [ ] Add redux auth middleware
+- [ ] Add ajax lib
+- [ ] Add authentication actions
+- [x] Add [Ant Design](http://ant.design/) components
+- [x] Add [i18n](https://github.com/yahoo/react-intl) integration
 
 ## Table of Contents
 1. [Features](#features)
@@ -28,9 +29,6 @@ Starter based on [react-redux-starter-kit](https://github.com/davezuko/react-red
   1. [Styles](#styles)
   1. [Server](#server)
   1. [Production Optimization](#production-optimization)
-1. [Learning Resources](#learning-resources)
-1. [FAQ](#troubleshooting)
-1. [Thank You](#thank-you)
 
 ## Features
 * [react](https://github.com/facebook/react)
@@ -220,3 +218,5 @@ This starter kit comes packaged with an Koa server. It's important to note that 
 ### Production Optimization
 
 Babel is configured to use [babel-plugin-transform-runtime](https://www.npmjs.com/package/babel-plugin-transform-runtime) so transforms aren't inlined. Additionally, in production, we use [react-optimize](https://github.com/thejameskyle/babel-react-optimize) to further optimize your React code.
+
+WARNING: react-optimize could cause some compilation problem on production, please turn off this plugin if you find complie time error/mobile browser error.

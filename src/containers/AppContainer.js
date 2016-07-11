@@ -1,17 +1,10 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Router } from 'react-router'
 import { Provider, connect } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 import * as messages from '../i18n'
 
 class AppContainer extends React.Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    routes: PropTypes.object.isRequired,
-    routerKey: PropTypes.number,
-    store: PropTypes.object.isRequired
-  }
-
   getContent ({ history, routes, routerKey, locale }) {
     const intlData = {
       locale,
@@ -39,6 +32,13 @@ class AppContainer extends React.Component {
       </Provider>
     )
   }
+}
+
+AppContainer.propTypes = {
+  history: React.PropTypes.object.isRequired,
+  routes: React.PropTypes.object.isRequired,
+  routerKey: React.PropTypes.number,
+  store: React.PropTypes.object.isRequired
 }
 
 function mapStateToProps (state) {

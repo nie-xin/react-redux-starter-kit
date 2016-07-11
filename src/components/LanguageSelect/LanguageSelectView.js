@@ -2,18 +2,18 @@ import React from 'react'
 import Select from 'antd/lib/select'
 const Option = Select.Option
 
-export const LanguageSelectView = (props) => (
+export const LanguageSelectView = ({ localeChange }) => (
   <Select
     defaultValue='en'
-    onChange={props.localeLoad}
-    >
+    onChange={localeChange}
+  >
     <Option value='en'>en</Option>
     <Option value='fr'>fr</Option>
   </Select>
 )
 
 LanguageSelectView.propTypes = {
-  localeLoad: React.PropTypes.func.isRequired
+  localeChange: React.PropTypes.func.isRequired
 }
 
 export default LanguageSelectView

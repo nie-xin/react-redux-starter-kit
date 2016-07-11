@@ -1,4 +1,4 @@
-import { loadLocaleData } from 'utils/Intl'
+import { loadIntlPolyfill, loadLocaleData } from 'utils/Intl'
 
 // ------------------------------------
 // Constants
@@ -9,24 +9,15 @@ export const LOCALE_CHANGE = 'LOCALE_CHANGE'
 // Actions
 // ------------------------------------
 export function localeChange (locale = 'en') {
-  return {
-    type: LOCALE_CHANGE,
-    payload: locale
-  }
-}
-
-export function localeLoad (locale = 'en') {
   return (dispatch, getState) => {
-    return loadLocaleData(locale)
-      .then(response => dispatch(localeChange(locale)))
-      .catch(error => console.error(error))
+    return loadIntlPolyfill(locale)
+      .then(loadLocaleData.bind(null, locale))
+      .then(dispatch.bind(null, { type: LOCALE_CHANGE, payload: locale }))
+      .catch(error => { throw new Error(error) })
   }
 }
 
-export const actions = {
-  localeChange,
-  localeLoad
-}
+export const actions = { localeChange }
 
 // ------------------------------------
 // Action Handlers

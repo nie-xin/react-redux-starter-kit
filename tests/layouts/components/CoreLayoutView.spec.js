@@ -13,7 +13,7 @@ function shallowRenderWithProps (props = {}) {
   return shallowRender(<CoreLayoutView {...props} />)
 }
 
-describe('(Layout) Core', function () {
+describe('(Layout) CoreLayoutView', function () {
   let _component
   let _props
   let _child

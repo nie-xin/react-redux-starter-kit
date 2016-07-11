@@ -30,7 +30,7 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = 'en'
-export default function counterReducer (state = initialState, action) {
+export default function coreLayoutReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state

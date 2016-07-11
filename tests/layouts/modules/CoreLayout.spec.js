@@ -21,7 +21,7 @@ describe('(Module) CoreLayout', () => {
 
     it('Should dispatch LOCALE_CHANGE action', () => {
       func(dispatch, getState)
-      .then(() => dispatch.should.have.been.calledWith({ type: LOCALE_CHANGE, payload: 'fr' }))
+      .then(() => dispatch.should.have.been.calledWith({ type: 'LOCALE_CHANGE', payload: 'fr' }))
     })
   })
 })

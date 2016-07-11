@@ -5,7 +5,7 @@ import { useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
-import IntlUtils from './utils/Intl'
+import { loadIntlPolyfill, loadLocaleData } from './utils/Intl'
 import { injectReducer } from './store/reducers'
 import languageSelectReducer from './components/LanguageSelect/modules/languageSelect'
 
@@ -84,9 +84,7 @@ if (__DEV__ && module.hot) {
 const locale = document.documentElement.getAttribute('lang')
 injectReducer(store, { key: 'locale', reducer: languageSelectReducer })
 
-IntlUtils.loadIntlPolyfill(locale)
-  .then(IntlUtils.loadLocaleData.bind(null, locale))
+loadIntlPolyfill(locale)
+  .then(loadLocaleData.bind(null, locale))
   .then(render)
-  .catch(err => {
-    console.error(err)
-  })
+  .catch(error => console.error(error))

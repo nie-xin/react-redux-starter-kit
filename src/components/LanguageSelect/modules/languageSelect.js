@@ -1,4 +1,4 @@
-import IntlUtils from 'utils/Intl'
+import { loadLocaleData } from 'utils/Intl'
 
 // ------------------------------------
 // Constants
@@ -8,17 +8,18 @@ export const LOCALE_CHANGE = 'LOCALE_CHANGE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function localeChange (value = 'en') {
+export function localeChange (locale = 'en') {
   return {
     type: LOCALE_CHANGE,
-    payload: value
+    payload: locale
   }
 }
 
 export function localeLoad (locale = 'en') {
   return (dispatch, getState) => {
-    return IntlUtils.loadLocaleData(locale)
-      .then(() => dispatch(localeChange(locale)))
+    return loadLocaleData(locale)
+      .then(response => dispatch(localeChange(locale)))
+      .catch(error => console.error(error))
   }
 }
 

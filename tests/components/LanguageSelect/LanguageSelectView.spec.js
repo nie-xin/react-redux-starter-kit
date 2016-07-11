@@ -36,5 +36,11 @@ describe('(Component) LanguageSelectView', () => {
       const options = select.find(Option)
       expect(options).to.have.length.of(2)
     })
+
+    it('Should dispatch localChange on change', () => {
+      _spies.localeChange.should.have.not.been.called
+      _wrapper.simulate('change')
+      _spies.localeChange.should.have.been.called
+    })
   })
 })

@@ -4,7 +4,7 @@ import classes from './CoreLayout.scss'
 import 'styles/core.scss'
 // TODO: Move antd style to core.scss after following issue resolved
 // https://github.com/davezuko/react-redux-starter-kit/issues/474
-import 'antd/lib/index.css'
+import 'antd/dist/antd.css'
 
 export const CoreLayout = ({ children, localeChange }) => (
   <div className='container text-center'>

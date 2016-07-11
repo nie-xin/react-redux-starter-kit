@@ -1,6 +1,6 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import CoreLayout from 'layouts/CoreLayout/CoreLayout'
+import CoreLayoutView from 'layouts/CoreLayout/components/CoreLayoutView'
 
 function shallowRender (component) {
   const renderer = TestUtils.createRenderer()
@@ -10,7 +10,7 @@ function shallowRender (component) {
 }
 
 function shallowRenderWithProps (props = {}) {
-  return shallowRender(<CoreLayout {...props} />)
+  return shallowRender(<CoreLayoutView {...props} />)
 }
 
 describe('(Layout) Core', function () {

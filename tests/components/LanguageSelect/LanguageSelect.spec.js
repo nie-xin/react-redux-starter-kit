@@ -1,5 +1,5 @@
 import React from 'react'
-import LanguageSelectView from 'components/LanguageSelect/components/LanguageSelectView'
+import LanguageSelectView from 'components/LanguageSelect/LanguageSelectView'
 import { bindActionCreators } from 'redux'
 import { shallow, mount } from 'enzyme'
 import Select from 'antd/lib/select'
@@ -14,7 +14,7 @@ describe('(Component) LanguageSelectView', () => {
     _props = {
       locale: 'en',
       ...bindActionCreators({
-        localeLoad: (_spies.localeLoad = sinon.spy())
+        localeChange: (_spies.localeChange = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
     _wrapper = shallow(<LanguageSelectView {..._props} />)

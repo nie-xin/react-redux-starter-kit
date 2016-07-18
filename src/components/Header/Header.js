@@ -1,7 +1,7 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import { defineMessages, FormattedMessage } from 'react-intl'
-import LanguageSelectView from '../LanguageSelect/LanguageSelectView'
+import LanguageSelect from 'containers/LanguageSelectContainer'
 import classes from './Header.scss'
 
 const messages = defineMessages({
@@ -22,7 +22,7 @@ const messages = defineMessages({
   }
 })
 
-export const Header = ({ localeChange }) => (
+export const Header = () => (
   <div>
     <FormattedMessage {...messages.welcome}>
       {text => <h1>{text}</h1>}
@@ -35,12 +35,8 @@ export const Header = ({ localeChange }) => (
       <FormattedMessage {...messages.navbarItem2} />
     </Link>
 
-    <LanguageSelectView localeChange={localeChange} />
+    <LanguageSelect />
   </div>
 )
-
-Header.propTypes = {
-  localeChange: React.PropTypes.func.isRequired
-}
 
 export default Header

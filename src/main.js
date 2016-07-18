@@ -7,7 +7,7 @@ import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
 import { loadIntlPolyfill, loadLocaleData } from './utils/Intl'
 import { injectReducer } from './store/reducers'
-import coreLayoutReducer from './layouts/CoreLayout/modules/CoreLayout'
+import languageSelectReducer from 'redux/modules/LanguageSelect'
 
 // ========================================================
 // Browser History Setup
@@ -81,7 +81,7 @@ if (__DEV__ && module.hot) {
 // ========================================================
 // We could inject locale reducer with a fetced locale from user profile
 // Initial locale data should be loaded before initial rendering
-injectReducer(store, { key: 'locale', reducer: coreLayoutReducer })
+injectReducer(store, { key: 'locale', reducer: languageSelectReducer })
 
 const locale = document.documentElement.getAttribute('lang')
 loadIntlPolyfill(locale)

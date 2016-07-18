@@ -6,9 +6,9 @@ import 'styles/core.scss'
 // https://github.com/davezuko/react-redux-starter-kit/issues/474
 import 'antd/dist/antd.css'
 
-export const CoreLayout = ({ children, localeChange }) => (
+export const CoreLayout = ({ children }) => (
   <div className='container text-center'>
-    <Header localeChange={localeChange} />
+    <Header />
     <div className={classes.mainContainer}>
       {children}
     </div>
@@ -16,8 +16,7 @@ export const CoreLayout = ({ children, localeChange }) => (
 )
 
 CoreLayout.propTypes = {
-  children: React.PropTypes.element.isRequired,
-  localeChange: React.PropTypes.func.isRequired
+  children: React.PropTypes.element.isRequired
 }
 
 export default CoreLayout

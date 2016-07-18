@@ -1,11 +1,9 @@
 import React from 'react'
 import { shallowWithIntl } from '../../utils/intl-test-helper'
-import { bindActionCreators } from 'redux'
 import { Header } from 'components/Header/Header'
 import classes from 'components/Header/Header.scss'
-import LanguageSelectView from 'components/LanguageSelect/LanguageSelectView'
+import LanguageSelect from 'containers/LanguageSelectContainer'
 import { IndexLink, Link } from 'react-router'
-import { shallow } from 'enzyme'
 import { defineMessages, FormattedMessage } from 'react-intl'
 
 const messages = defineMessages({
@@ -27,16 +25,10 @@ const messages = defineMessages({
 })
 
 describe('(Component) Header', () => {
-  let _wrapper, _spies, _props
+  let _wrapper, _props
 
   beforeEach(() => {
-    _spies = {}
-    _props = {
-      locale: 'en',
-      ...bindActionCreators({
-        localeChange: (_spies.localeChange = sinon.spy())
-      }, _spies.dispatch = sinon.spy())
-    }
+    _props = { locale: 'en' }
     _wrapper = shallowWithIntl(<Header {..._props} />)
   })
 
@@ -50,7 +42,7 @@ describe('(Component) Header', () => {
 
   it('Should render a language select', () => {
     expect(_wrapper.contains(
-      <LanguageSelectView localeChange={_props.localeChange} />
+      <LanguageSelect />
     )).to.be.true
   })
 

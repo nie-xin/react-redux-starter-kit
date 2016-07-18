@@ -1,10 +1,10 @@
-import coreLayoutReducer, { localeChange } from 'layouts/CoreLayout/modules/CoreLayout'
+import languageSelectReducer, { localeChange } from 'redux/modules/LanguageSelect'
 
-describe('(Module) CoreLayout', () => {
+describe('(Module) LanguageSelect', () => {
   const initialState = 'en'
 
   it('Should return initial state', () => {
-    const state = coreLayoutReducer(undefined, '')
+    const state = languageSelectReducer(undefined, '')
     expect(state).to.deep.equal(initialState)
   })
 

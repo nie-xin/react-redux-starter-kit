@@ -1,15 +1,15 @@
 import React from 'react'
-import Select from 'antd/lib/select'
-const Option = Select.Option
+
+const onSelectChange = (callback) => (event) => callback(event.target.value)
 
 export const LanguageSelectView = ({ localeChange }) => (
-  <Select
+  <select
     defaultValue='en'
-    onChange={localeChange}
+    onChange={onSelectChange(localeChange)}
   >
-    <Option value='en'>en</Option>
-    <Option value='fr'>fr</Option>
-  </Select>
+    <option value='en'>en</option>
+    <option value='fr'>fr</option>
+  </select>
 )
 
 LanguageSelectView.propTypes = {

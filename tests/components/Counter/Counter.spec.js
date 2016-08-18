@@ -1,9 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Counter } from 'components/Counter/Counter'
-import { shallow } from 'enzyme'
-import { mount } from 'enzyme'
-import Button from 'antd/lib/button'
+import { shallow, mount } from 'enzyme'
 
 describe('(Component) Counter', () => {
   let _props, _spies, _wrapper
@@ -35,7 +33,7 @@ describe('(Component) Counter', () => {
   })
 
   it('Should render exactly two buttons.', () => {
-    expect((_wrapper).find(Button)).to.have.length.of(2)
+    expect((_wrapper).find('button')).to.have.length.of(2)
   })
 
   describe('An increment button...', () => {
@@ -43,7 +41,7 @@ describe('(Component) Counter', () => {
 
     beforeEach(() => {
       _wrapper = mount(<Counter {..._props} />)
-      _button = (_wrapper).find(Button).filterWhere(a => a.text() === 'Increment')
+      _button = (_wrapper).find('button').filterWhere(a => a.text() === 'Increment')
     })
 
     it('Should dispatch a `increment` action when clicked', () => {

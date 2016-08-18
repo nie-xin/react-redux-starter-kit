@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallowWithIntl } from '../../utils/intl-test-helper'
 import { Header } from 'components/Header/Header'
-import classes from 'components/Header/Header.scss'
+import classes from 'components/Header/Header.css'
 import LanguageSelect from 'containers/LanguageSelectContainer'
 import { IndexLink, Link } from 'react-router'
 import { defineMessages, FormattedMessage } from 'react-intl'

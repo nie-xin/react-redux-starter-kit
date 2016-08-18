@@ -1,6 +1,6 @@
 import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
-import classes from './HomeView.scss'
+import classes from './HomeView.css'
 import { defineMessages, FormattedMessage } from 'react-intl'
 
 const messages = defineMessages({

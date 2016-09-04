@@ -51,7 +51,7 @@ describe('(Component) Counter', () => {
 
       _spies.dispatch.should.have.been.called
       _spies.increment.should.have.been.called
-    });
+    })
   })
 
   describe('A Double (Async) button...', () => {
@@ -69,6 +69,6 @@ describe('(Component) Counter', () => {
 
       _spies.dispatch.should.have.been.called
       _spies.doubleAsync.should.have.been.called
-    });
+    })
   })
 })

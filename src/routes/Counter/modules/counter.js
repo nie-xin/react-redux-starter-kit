@@ -1,7 +1,10 @@
+import API from 'utils/services'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
+export const FETCH_AJAX = 'FETCH_AJAX'
 
 // ------------------------------------
 // Actions
@@ -32,9 +35,20 @@ export const doubleAsync = () => {
   }
 }
 
+export const fetchAjax = () => {
+  return (dispatch, getState) => {
+    API
+    .follow('next')
+    .getResource()
+    .result
+    .then(res => console.log(res))
+  }
+}
+
 export const actions = {
   increment,
-  doubleAsync
+  doubleAsync,
+  fetchAjax
 }
 
 // ------------------------------------

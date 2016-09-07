@@ -12,7 +12,8 @@ describe('(Component) Counter', () => {
       counter: 5,
       ...bindActionCreators({
         doubleAsync: (_spies.doubleAsync = sinon.spy()),
-        increment: (_spies.increment = sinon.spy())
+        increment: (_spies.increment = sinon.spy()),
+        fetchAjax: (_spies.fetchAjax = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
     _wrapper = shallow(<Counter {..._props} />)
@@ -33,7 +34,7 @@ describe('(Component) Counter', () => {
   })
 
   it('Should render exactly two buttons.', () => {
-    expect((_wrapper).find('button')).to.have.length.of(2)
+    expect((_wrapper).find('button')).to.have.length.of(3)
   })
 
   describe('An increment button...', () => {
@@ -69,6 +70,24 @@ describe('(Component) Counter', () => {
 
       _spies.dispatch.should.have.been.called
       _spies.doubleAsync.should.have.been.called
+    })
+  })
+
+  describe('A Star war (ajax) button...', () => {
+    let _button
+
+    beforeEach(() => {
+      _wrapper = mount(<Counter {..._props} />)
+      _button = _wrapper.find('button').filterWhere(a => a.text() === 'Star wars (Ajax)')
+    })
+
+    it('Should dispatch a `fetchAjax` action when clicked', () => {
+      _spies.dispatch.should.have.not.been.called
+
+      _button.simulate('click')
+
+      _spies.dispatch.should.have.been.called
+      _spies.fetchAjax.should.have.been.called
     })
   })
 })

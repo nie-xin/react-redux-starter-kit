@@ -17,13 +17,18 @@ export const Counter = (props) => (
     <button type='primary' onClick={props.doubleAsync}>
       Double (Async)
     </button>
+    {' '}
+    <button type='primary' onClick={props.fetchAjax}>
+      Star wars (Ajax)
+    </button>
   </div>
 )
 
 Counter.propTypes = {
   counter: React.PropTypes.number.isRequired,
   doubleAsync: React.PropTypes.func.isRequired,
-  increment: React.PropTypes.func.isRequired
+  increment: React.PropTypes.func.isRequired,
+  fetchAjax: React.PropTypes.func.isRequired
 }
 
 export default Counter
